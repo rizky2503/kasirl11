@@ -1,66 +1,251 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Kasir Laravel 11 - Sistem Point of Sale
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Point of Sale (POS) modern berbasis web yang dibangun dengan Laravel 11 dan Livewire 3.6. Aplikasi kasir ini menyediakan fitur lengkap untuk mengelola produk, transaksi, inventaris, dan menghasilkan laporan.
 
-## About Laravel
+## 🚀 Fitur
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Fungsi Inti
+- **Manajemen Produk**: Menyelesaikan operasi CRUD untuk produk dengan fungsi impor Excel
+- **Pemrosesan Transaksi**: Penanganan transaksi real-time dengan fungsi keranjang
+- **Manajemen Inventaris**: Pelacakan dan manajemen stok
+- **Manajemen Pengguna**: Kontrol akses berbasis peran (Admin/Pengguna)
+- **Sistem Pelaporan**: Laporan dan analisis transaksi
+- **Dasbor**: Ikhtisar status penjualan dan inventaris
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Fitur Teknis
+- **Pembaruan Waktu Nyata**: Komponen reaktif bertenaga Livewire
+- **Impor Excel**: Impor produk massal melalui file Excel
+- **Desain Responsif**: Antarmuka ramah seluler
+- **Otentikasi**: Sistem login aman dengan manajemen peran
+- **UI Modern**: Antarmuka pengguna yang bersih dan intuitif
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠 Tumpukan Teknologi
 
-## Learning Laravel
+- **Backend**: Laravel 11
+- **Depan**: Livewire 3.6, Vite, Templat Blade
+- **Basis Data**: MySQL
+- **Otentikasi**: Laravel Sanctum
+- **Pemrosesan File**: Situs web Maat Excel
+- **Alat Pengembangan**: Komposer, NPM, PHPUnit
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📋 Prasyarat
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Sebelum menjalankan aplikasi ini, pastikan Anda sudah menginstal yang berikut ini:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-PHP >= 8.1
+- Komposer
+- Node.js & NPM
+- Basis Data MySQL
+- Git
 
-## Laravel Sponsors
+## 🚀 Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clone the Repository
+```bash
+git clone <your-repository-url>
+cd kasirl11
+```
 
-### Premium Partners
+### 2. Install PHP Dependencies
+```bash
+composer install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 3. Install Node.js Dependencies
+```bash
+npm install
+```
 
-## Contributing
+### 4. Environment Configuration
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Update your `.env` file with your database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=kasir_db
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
-## Code of Conduct
+### 5. Generate Application Key
+```bash
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Run Database Migrations
+```bash
+php artisan migrate
+```
 
-## Security Vulnerabilities
+### 7. Seed the Database (Optional)
+```bash
+php artisan db:seed
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 8. Build Frontend Assets
+```bash
+npm run build
+# For development
+npm run dev
+```
 
-## License
+### 9. Start the Application
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Visit `http://localhost:8000` in your browser.
+
+## 📊 Database Schema
+
+### Users Table
+- `id`, `name`, `email`, `password`, `peran` (role), `timestamps`
+
+### Produk Table
+- `id`, `kode`, `nama`, `harga`, `stok`, `timestamps`
+
+### Transaksi Table
+- `id`, `kode`, `total`, `status`, `timestamps`
+
+### DetilTransaksi Table
+- `id`, `transaksi_id`, `produk_id`, `jumlah`, `timestamps`
+
+## 🎯 Key Components
+
+### Livewire Components
+
+#### Transaksi Component
+- **Location**: `app/Livewire/Transaksi.php`
+- **Features**:
+  - Create new transactions
+  - Add/remove products from cart
+  - Calculate totals and change
+  - Complete/cancel transactions
+  - Real-time stock updates
+
+#### Produk Component
+- **Location**: `app/Livewire/Produk.php`
+- **Features**:
+  - Product CRUD operations
+  - Excel import functionality
+  - Stock management
+  - Product search and filtering
+
+#### User Component
+- **Location**: `app/Livewire/User.php`
+- **Features**:
+  - User management
+  - Role-based access control
+  - Admin-only features
+
+#### Laporan Component
+- **Location**: `app/Livewire/Laporan.php`
+- **Features**:
+  - Transaction reporting
+  - Sales analytics
+  - Export functionality
+
+## 🔐 User Roles
+
+### Admin Role
+- Full access to all features
+- Product management
+- User management
+- System configuration
+- Report generation
+
+### User Role
+- Transaction processing
+- View products
+- Limited access to reports
+
+## 📱 Usage
+
+### Creating a Transaction
+1. Navigate to the Transaction page
+2. Click "Transaksi Baru" to start a new transaction
+3. Scan or enter product code
+4. Enter payment amount
+5. Complete the transaction
+
+### Managing Products
+1. Go to Product Management
+2. Add new products manually or via Excel import
+3. Edit product details (name, code, price, stock)
+4. Delete products when necessary
+
+### Generating Reports
+1. Access the Reports section
+2. View transaction history
+3. Filter by date range
+4. Export reports if needed
+
+## 🧪 Testing
+
+Run the test suite:
+```bash
+php artisan test
+```
+
+## 📁 Project Structure
+
+```
+kasirl11/
+├── app/
+│   ├── Http/Controllers/     # Controllers
+│   ├── Livewire/             # Livewire components
+│   ├── Models/               # Eloquent models
+│   └── Imports/              # Excel import classes
+├── database/
+│   ├── migrations/           # Database migrations
+│   └── seeders/              # Database seeders
+├── resources/
+│   ├── views/                # Blade templates
+│   ├── css/                  # Stylesheets
+│   └── js/                   # JavaScript files
+├── routes/
+│   ├── web.php               # Web routes
+│   └── api.php               # API routes
+└── storage/                  # File storage
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Support
+
+For support, please contact the development team or create an issue in the repository.
+
+## 🔄 Updates
+
+To update the application:
+```bash
+composer update
+npm update
+php artisan migrate
+```
+
+## 📊 Performance
+
+The application is optimized for:
+- Fast transaction processing
+- Real-time inventory updates
+- Responsive user interface
+- Efficient database queries
+
+---
+
+**Built with ❤️ using Laravel 11 & Livewire 3.6**
